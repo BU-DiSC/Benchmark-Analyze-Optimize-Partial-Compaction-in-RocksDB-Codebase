@@ -1,0 +1,3 @@
+[submodule "rocksdb-for-partial-compaction-analysis"]
+	path = rocksdb-for-partial-compaction-analysis
+	url = git@github.com:BU-DiSC/rocksdb-for-partial-compaction-analysis.git
