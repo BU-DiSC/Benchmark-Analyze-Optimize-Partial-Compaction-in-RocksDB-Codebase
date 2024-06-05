@@ -12,7 +12,7 @@ If you cannot compile the static library successfully due to lack of package, pl
 
 <H1> Compiling Necessary Utility Programs </H1>
 
-Then, navigate to `rocksdb-for-partial-compaction-analysis/main` directory and run:
+Then, navigate to `main` directory and run:
 ```
 make tools
 ```
@@ -20,7 +20,7 @@ which makes programs for workload generation, progress checking of enumeration, 
 
 <H1> Running the Example Benchmark for RocksDB </H1>
 
-To run the workload, you need to go to `rocksdb-for-partial-compaction-analysis/main` directory and run:
+To run the workload, you need to go to `main` directory and run:
 
 ```
 make simple_example
