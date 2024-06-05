@@ -10,7 +10,7 @@ make static_lib
 ```
 If you cannot compile the static library successfully due to lack of package, please check [here](https://github.com/facebook/rocksdb/blob/main/INSTALL.md) for more info.
 
-<H1> Compiling Necessary Utility Program </H1>
+<H1> Compiling Necessary Utility Programs </H1>
 
 Then, navigate to `rocksdb-for-partial-compaction-analysis/main` directory and run:
 ```
