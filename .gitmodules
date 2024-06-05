@@ -1,6 +1,0 @@
-[submodule "rocksdb-for-partial-compaction-analysis"]
-	path = rocksdb-for-partial-compaction-analysis
-	url = git@github.com:BU-DiSC/rocksdb-for-partial-compaction-analysis.git
-[submodule "K-V-Workload-Generator"]
-	path = K-V-Workload-Generator
-	url = git@github.com:weirande2009/K-V-Workload-Generator.git
