@@ -53,3 +53,10 @@ where
 `[target_file_size_base]` is target size of the file in base level (level 1), e.g., 67108864 (64MB)  
 `[max_bytes_for_level_base]` is the max bytes for the base level (level 1), e.g., 268435456 (256MB)  
 `[write_buffer_data_structure]` is the data structure for the write buffer, e.g., Vector, SkipList, HashSkipList, HashLinkList  
+
+<H1> RefinedMOR Implementation </H1>
+
+Details can be found in: 
+1. rocksdb-for-partial-compaction-analysis/db/compaction/compaction_picker_level.cc:812  
+2. rocksdb-for-partial-compaction-analysis/db/version_set.cc:7517  
+3. rocksdb-for-partial-compaction-analysis/enumerate/all_files_enumerator.cc:59  
