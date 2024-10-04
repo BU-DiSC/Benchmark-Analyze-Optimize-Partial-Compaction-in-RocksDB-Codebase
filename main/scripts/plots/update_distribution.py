@@ -39,6 +39,7 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes, ax, index, word):
     means = {}
 
     for i in range(len(data)):
+        # plot all strategies
         for j in range(len(strategies)):
             strategy = strategies[j]
             df = get_data(data[i], strategy)
@@ -49,6 +50,7 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes, ax, index, word):
             percentile75val = df['75th'] / data_total_bytes[i]
             start_x = i+strategy_wide*j
 
+            # Plot min and max
             if i == 0 and index == 0:
                 ax.plot([start_x, start_x], [min_val, percentile25val], label=strategies_label[j], color=strategy_colors[j], linewidth=1)
             else:
@@ -103,6 +105,14 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes, ax, index, word):
                 lab = 'min'
                 draw_explanation(ax, start_x, tick_width, first_seg_length, second_seg_length, val, rise_height, lab)
 
+
+        rr = (get_data(data[i], 'kRoundRobin')['Mean'].iloc[0] / data_total_bytes[i])
+        mor = (get_data(data[i], 'kMinOverlappingRatio')['Mean'].iloc[0] / data_total_bytes[i])
+        olsf = (get_data(data[i], 'kOldestLargestSeqFirst')['Mean'].iloc[0] / data_total_bytes[i])
+        print(index, sub_dirs[i], ": ")
+        print("rr[", (olsf-rr)/olsf*100,"]")
+        print("mor[", (olsf-mor)/olsf*100, "]")
+
         if i != len(data) - 1:
             # add a split dashed line
             ax.plot([i + 0.74, i + 0.74], [y_start, y_end], color='black', linestyle='dashed', linewidth=1)
@@ -127,8 +137,8 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes, ax, index, word):
     if index < 3:
         ax.xaxis.set_major_locator(ticker.NullLocator())
 
-save_path = 'figures/Update-Distribution.pdf'
-data_root = 'workspace/edbt/compare_distribution'
+save_path = '/Users/weiran/BU/EDBT/Results/Final/revision/Update-Distribution.pdf'
+data_root = '/Users/weiran/BU/Thesis/rocksdb/main/workspace/edbt_revision/compare_distribution/5gb/first_run'
 
 labels = ['10', '30', '50']
 sub_dirs = ['90_10_0', '70_30_0', '50_50_0']

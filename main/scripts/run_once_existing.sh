@@ -7,7 +7,7 @@ if ! [ $# -eq 10 ]; then
     echo 'in this shell script, there will be 10 parameters, which are:'
     echo '1. the path of rocksdb'
     echo '2. the path of the experiment workspace'
-    echo '3. running method (kRoundRobin, kMinOverlappingRatio, kEnumerateAll, kManual, kTwoStepsSearch, kRefinedMOR)'
+    echo '3. running method (kRoundRobin, kMinOverlappingRatio, kEnumerateAll, kManual, kRefinedMOR)'
     echo '4. the number of all inserted bytes'
     echo '5. the workload path'
     echo '6. write buffer size'

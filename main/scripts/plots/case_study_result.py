@@ -19,11 +19,12 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes, ax, index, word, y_star
 
     tick_width = 0.04
 
-    strategies = ['kRoundRobin', 'kMinOverlappingRatio', 'kOldestLargestSeqFirst', 'kOldestSmallestSeqFirst', 'kRefinedMOR']
+    strategies = ['kRoundRobin', 'kMinOverlappingRatio', 'kOldestLargestSeqFirst', 'kOldestSmallestSeqFirst', 'kSelectLastSimilar']
     strategies_label = ['RoundRobin', 'MinOverlappingRatio', 'OldestLargestSeqFirst', 'OldestSmallestSeqFirst', 'RefinedMOR']
     strategy_wide = 0.16
     strategy_colors = ['red', 'blue', 'green', 'purple', 'brown']
 
+    # write a word on the top right of the figure
     ax.text(0.95, 0.95, word, transform=ax.transAxes, fontsize=12, verticalalignment='top', horizontalalignment='right')
 
     means = {}
@@ -76,8 +77,8 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes, ax, index, word, y_star
     ax.set_ylim(y_start, y_end)
     ax.set_yticks(ticks=y_ticks)
 
-save_path = 'figures/Case-Study-Result-3.pdf'
-data_root = 'workspace/edbt/compare_workload_size/refinedmor'
+save_path = '/Users/weiran/BU/EDBT/Results/Final/revision/Case-Study-Result.pdf'
+data_root = '/Users/weiran/BU/Thesis/rocksdb/main/workspace/edbt_revision/refinedmor'
 
 labels = ['10', '30', '50']
 sub_dirs = ['90_10_0', '70_30_0', '50_50_0']

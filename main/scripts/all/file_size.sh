@@ -61,7 +61,7 @@ run_multiple_times_for_baseline() {
 }
 
 file_size() {
-    num_workloads=10
+    num_workloads=20
 
     num_operation=$((5 * 1024 * 1024))
     entry_size=1024

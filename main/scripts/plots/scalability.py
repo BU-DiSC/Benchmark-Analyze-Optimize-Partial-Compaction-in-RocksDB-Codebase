@@ -55,6 +55,7 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes, ax, index, word, y_star
 
             # Plot mean
             ax.scatter(start_x, mean_val, s=15, marker='x', color=strategy_colors[j], zorder=10, linewidth=0.75)
+            # ax.scatter(start_x, median_val, s=15, marker='o', color=strategy_colors[j], zorder=10, linewidth=0.75)
         if i != len(data) - 1:
             # add a split dashed line
             ax.plot([i + 0.74, i + 0.74], [y_start, y_end], color='black', linestyle='dashed', linewidth=1)
@@ -78,8 +79,8 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes, ax, index, word, y_star
     if index < 3:
         ax.xaxis.set_major_locator(ticker.NullLocator())
 
-save_path = 'figures/Scalability.pdf'
-data_root = 'workspace/edbt/compare_workload_size'
+save_path = '/Users/weiran/BU/EDBT/Results/Final/revision/Scalability.pdf'
+data_root = '/Users/weiran/BU/Thesis/rocksdb/main/workspace/edbt_revision/compare_workload_size/first_run'
 
 labels = ['0', '25', '50']
 sub_dirs = ['100_0', '75_25', '50_50']
@@ -95,7 +96,7 @@ data_total_bytes = [[total_bytes*2 for i in range(len(labels))],
                     [total_bytes*8 for i in range(len(labels))]]
 ax_index = [(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2)]
 words = ['(a)', '(b)', '(c)', '(d)', '(e)', '(f)']
-
+# available = [1, 2, 3, 4, 5]
 y_range = [(3, 6, np.arange(3, 6.1, 1)), (4, 7, np.arange(4, 7.1, 1)), (5, 8, np.arange(5, 8.1, 1)),
            (3, 6, np.arange(3, 6.1, 1)), (4, 7, np.arange(4, 7.1, 1)), (5, 8, np.arange(5, 8.1, 1))]
 for i in range(len(data_dirs)):

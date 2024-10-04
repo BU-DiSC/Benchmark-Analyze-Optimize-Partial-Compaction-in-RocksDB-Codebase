@@ -54,7 +54,7 @@ run_multiple_times_for_baseline() {
     rm -rf $rocksdb_dir_ssd
 }
 
-num_workloads=10
+num_workloads=20
 
 # run experiments on SSD & NVMe
 run_multiple_times_for_baseline 100 0 $num_workloads &

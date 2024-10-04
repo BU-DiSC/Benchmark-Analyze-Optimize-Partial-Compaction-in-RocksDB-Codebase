@@ -61,6 +61,12 @@ run_all_baselines() {
     cp $2/LOG $3/LOG_OSSF
     rocksdb_size=$(du -sk $2 | awk '{ printf "%dK\n", $1 }')
     echo "kOldestSmallestSeqFirst: $rocksdb_size" >> $3/rocksdb_size.txt
+
+    find $2 -mindepth 1 -delete
+    ./simple_example kRefinedMOR $1 $2 $3 $4 0 0 $5 $6 $7 $8
+    cp $2/LOG $3/LOG_SLS
+    rocksdb_size=$(du -sk $2 | awk '{ printf "%dK\n", $1 }')
+    echo "kRefinedMOR: $rocksdb_size" >> $3/rocksdb_size.txt
 }
 
 run_enumerate() {

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import matplotlib.ticker as ticker
 
 matplotlib.rcParams['text.antialiased'] = True
-fig, axs = plt.subplots(1, 3, figsize=(6, 3))
+fig, axs = plt.subplots(1, 3, figsize=(6, 2))
 
 def get_data(df, strategy):
     data = df[df['Strategy'] == strategy]
@@ -17,9 +17,9 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes, ax, index, word):
         data.append(pd.read_csv(data_dir + '/' + dir + '/result.txt', sep='\t'))
 
     tick_width = 0.04
-    y_start = 2
+    y_start = 3
     y_end = 5
-    y_ticks = np.arange(y_start, y_end + 0.1, 1)
+    y_ticks = [3, 4, 5]
 
     strategies = ['kRoundRobin', 'kMinOverlappingRatio', 'kOldestLargestSeqFirst', 'kOldestSmallestSeqFirst']
     strategies_label = ['RoundRobin', 'MinOverlappingRatio', 'OldestLargestSeqFirst', 'OldestSmallestSeqFirst']
@@ -82,11 +82,11 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes, ax, index, word):
     if index != 0:
         ax.yaxis.set_major_locator(ticker.NullLocator())
 
-save_path = 'figures/Devices.pdf'
+save_path = '/Users/weiran/BU/EDBT/Results/Final/revision/Devices.pdf'
 
-data_root = 'workspace/edbt/compare_devices'
+data_root = '/Users/weiran/BU/Thesis/rocksdb/main/workspace/edbt_revision/compare_devices/5gb/mixed'
 
-labels = ['PCIe SSD', 'SSD']
+labels = ['Optane', 'SATA']
 sub_dirs = ['nvme1', 'ssd']
 total_bytes = 5 * 1024 * 1024 * 1024
 data_total_bytes = [total_bytes, total_bytes]
@@ -101,7 +101,7 @@ for i in range(len(data_dirs)):
     myplot(data_dir, labels, sub_dirs, data_total_bytes[i], axs[i], i, words[i])
 
 fig.subplots_adjust(bottom=0.2)
-fig.subplots_adjust(top=0.86)
+fig.subplots_adjust(top=0.8)
 fig.subplots_adjust(wspace=0.05)
 
 fig.legend(loc='upper center', 

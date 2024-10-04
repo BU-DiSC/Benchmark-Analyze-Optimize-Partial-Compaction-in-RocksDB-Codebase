@@ -50,7 +50,7 @@ run_multiple_times_for_baseline() {
 }
 
 update_distribution() {
-    num_workloads=10
+    num_workloads=20
 
     # normal distribution
     rocksdb_root_dir=/scratchNVM1/ranw/update/normal1

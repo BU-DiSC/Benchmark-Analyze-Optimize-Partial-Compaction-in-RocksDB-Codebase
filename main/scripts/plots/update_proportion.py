@@ -50,17 +50,24 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes):
                  color=strategy_colors[i], linewidth=1, 
                  marker=strategy_markers[i],markersize=5, markeredgewidth=1, markerfacecolor='none', markeredgecolor=strategy_colors[i])
 
+    # Set the x-axis labels
     xticks = [i+1 for i in range(len(labels))]
+    # for i in range(len(xticks)):
+    #     xticks[i] = xticks[i] + offset
     ax1.set_xticks(xticks, labels)
     ax2.set_xticks(xticks, labels)
 
+    ax1.set_yscale('log')
+    ax2.set_yscale('log')
+
+    # Set the range of y-axis
     ax1.set_ylim(y_start, y_end)
     ax2.set_ylim(y_start, y_end)
-
 
     ax1.set_yticks(ticks=y_ticks)
     ax2.set_yticks(ticks=y_ticks)
 
+    # Set grid, labels, and title
     ax1.set_xlabel('Update proportion(%)')
     ax2.set_xlabel('Update proportion(%)')
     ax1.set_ylabel('Write amplification')
@@ -80,15 +87,18 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes):
            labelspacing=0.2)
 
 
-save_path = 'figures/Update-Proportion.pdf'
-data_root = 'workspace/edbt/compare_proportion'
+save_path = '/Users/weiran/BU/EDBT/Results/Final/revision/Update-Proportion.pdf'
+data_root = '/Users/weiran/BU/Thesis/rocksdb/main/workspace/edbt_revision/compare_distribution/5gb/first_run/'
 
+# labels = ['90-10','70-30', '50-50', '30-70', '10-90']
+# sub_dirs = ['90_10_0', '70_30_0', '50_50_0', '30_70_0', '10_90_0']
+# labels = ['0', '10', '20', '30', '40', '50', '60', '70', '80', '90']
 labels = [None, '10', None, '30', None, '50', None, '70', None, '90']
 sub_dirs = ['100_0_0', '90_10_0', '80_20_0', '70_30_0', '60_40_0', '50_50_0', '40_60_0', '30_70_0', '20_80_0', '10_90_0']
 total_bytes = 5 * 1024 * 1024 * 1024
 data_total_bytes = [total_bytes] * len(sub_dirs)
 
-data_dir = data_root + "/proportion"
+data_dir = data_root + "/uniform"
 myplot(data_dir, labels, sub_dirs, data_total_bytes)
 
 plt.savefig(save_path, dpi=600)

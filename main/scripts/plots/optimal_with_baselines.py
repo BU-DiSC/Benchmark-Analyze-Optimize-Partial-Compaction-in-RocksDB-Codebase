@@ -6,7 +6,7 @@ import matplotlib.ticker as ticker
 
 matplotlib.rcParams['text.antialiased'] = True
 
-fig, axs = plt.subplots(1, 1, figsize=(6, 3.5))
+fig, axs = plt.subplots(1, 1, figsize=(6, 3))
 
 def get_data(df, strategy):
     data = df[df['Strategy'] == strategy]
@@ -15,28 +15,30 @@ def get_data(df, strategy):
 def myplot(data_dir, labels, sub_dirs, data_total_bytes, ax, index):
     data = []
     for dir in sub_dirs:
-        data.append(pd.read_csv(data_dir + '/' + dir + '/result.txt', sep='\t'))
+        data.append(pd.read_csv(data_dir + '/' + dir + '/skip/result.txt', sep='\t'))
 
     tick_width = 0.04
-    y_start = 2
+    y_start = 3
     y_end = 5
-    y_ticks = np.arange(y_start, y_end + 0.1, 1)
+    y_ticks = [3, 4, 5]
 
     strategies = ['kRoundRobin', 'kMinOverlappingRatio', 'kOldestLargestSeqFirst', 'kOldestSmallestSeqFirst', 'minimum']
     strategies_label = ['RoundRobin', 'MinOverlappingRatio', 'OldestLargestSeqFirst', 'OldestSmallestSeqFirst', 'Optimal']
     strategy_wide = 0.16
     strategy_colors = ['red', 'blue', 'green', 'purple', 'orange']
 
+    # ax.text(0.95, 0.95, word, transform=ax.transAxes, fontsize=12, verticalalignment='top', horizontalalignment='right')
+
     for i in range(len(data)):
         # plot all strategies
         for j in range(len(strategies)):
             strategy = strategies[j]
             df = get_data(data[i], strategy)
-            min_val = df['Min'] / data_total_bytes[i] + 1
-            max_val = df['Max'] / data_total_bytes[i] + 1
-            mean_val = df['Mean'] / data_total_bytes[i] + 1
-            percentile25val = df['25th'] / data_total_bytes[i] + 1
-            percentile75val = df['75th'] / data_total_bytes[i] + 1
+            min_val = df['Min'] / data_total_bytes[i]
+            max_val = df['Max'] / data_total_bytes[i]
+            mean_val = df['Mean'] / data_total_bytes[i]
+            percentile25val = df['25th'] / data_total_bytes[i]
+            percentile75val = df['75th'] / data_total_bytes[i]
             start_x = i+strategy_wide*j
 
             # Plot min and max
@@ -76,8 +78,8 @@ def myplot(data_dir, labels, sub_dirs, data_total_bytes, ax, index):
     ax.set_ylim(y_start, y_end)
     ax.set_yticks(ticks=y_ticks)
 
-save_path = 'figures/Optimal-With-Baselines.pdf'
-data_root = 'workspace/compare_optimal_with_baselines'
+save_path = '/Users/weiran/BU/EDBT/Results/Final/revision/Optimal-With-Baselines.pdf'
+data_root = '/Users/weiran/BU/Thesis/rocksdb/main/workspace/edbt_revision/compare_optimal_policies/2500000_64_8_memory/first_run'
 
 labels = ['0', '10', '20', '30', '40', '50']
 sub_dirs = ['100_0', '90_10', '80_20', '70_30', '60_40', '50_50']
@@ -86,8 +88,8 @@ data_total_bytes = [total_bytes] * len(sub_dirs)
 
 myplot(data_root, labels, sub_dirs, data_total_bytes, axs, 0)
 
-plt.subplots_adjust(top=0.80)
-plt.subplots_adjust(bottom=0.15)
+plt.subplots_adjust(top=0.78)
+plt.subplots_adjust(bottom=0.20)
 
 fig.legend(loc='upper center', 
            bbox_to_anchor=(0.5, 0.98), 

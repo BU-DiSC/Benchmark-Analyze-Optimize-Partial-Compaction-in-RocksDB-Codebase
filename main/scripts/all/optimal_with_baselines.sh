@@ -48,7 +48,7 @@ run_multiple_times_for_a_type() {
     rm -rf $rocksdb_dir
 }
 
-num_workloads=10
+num_workloads=20
 
 run_multiple_times_for_a_type 100 0 0 $num_workloads &
 run_multiple_times_for_a_type 90 10 0 $num_workloads &

@@ -59,7 +59,7 @@ run_multiple_times_for_a_type() {
     rm -rf $rocksdb_dir
 }
 
-num_workloads=10
+num_workloads=20
 entry_size=64
 num_operation=2000000
 
