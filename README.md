@@ -1,8 +1,8 @@
 # Codebase for the EDBT 2025 paper "Benchmarking, Analyzing, and Optimizing WA of Partial Compaction in RocksDB"
 
-You can cite our paper using
+You can cite our paper using:
 ```
-@inproceedings{DBLP:conf/edbt/WeiZKZA25,
+@inproceedings{Wei2025BenchmarkingPartialCompaction,
   author       = {Ran Wei and Zichen Zhu and Andrew Kryczka and Jay Zhuang and Manos Athanassoulis},
   title        = {Benchmarking, Analyzing, and Optimizing {WA} of Partial Compaction in RocksDB},
   booktitle    = {Proceedings of the International Conference on Extending Database Technology (EDBT)},
