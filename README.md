@@ -1,4 +1,18 @@
-<H1> The codebase for "[Experiments & Analysis] Benchmarking, Analyzing, and Optimizing WA of Partial Compaction in RocksDB" </H1>
+# Codebase for the EDBT 2025 paper "Benchmarking, Analyzing, and Optimizing WA of Partial Compaction in RocksDB"
+
+You can cite our paper using
+```
+@inproceedings{DBLP:conf/edbt/WeiZKZA25,
+  author       = {Ran Wei and Zichen Zhu and Andrew Kryczka and Jay Zhuang and Manos Athanassoulis},
+  title        = {Benchmarking, Analyzing, and Optimizing {WA} of Partial Compaction in RocksDB},
+  booktitle    = {Proceedings of the International Conference on Extending Database Technology (EDBT)},
+  pages        = {425--437},
+  year         = {2025},
+  url          = {https://doi.org/10.48786/edbt.2025.34},
+  doi          = {10.48786/EDBT.2025.34},
+}
+```
+
 
 This repository contains two submodules: key-value workload generator and RocksDB (v8.8.1) for partial compaction analysis.
 
